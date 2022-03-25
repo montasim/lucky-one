@@ -2,8 +2,10 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
-const Gun = ({ data, addTocart }) => {
+const Gun = ({ data, addToCart }) => {
     const { action, bullet, capacity, category, id, img, name, price } = data;
+
+    console.log(addToCart)
 
     return (
         <div className='col-11 col-md-5 col-lg-4 p-2'>
@@ -18,7 +20,7 @@ const Gun = ({ data, addTocart }) => {
                         <p>Category: {category}</p>
                     </div>
                     <div className='d-flex align-items-center justify-content-between'>
-                        <Button onClick={() => addTocart(data)} variant="primary">Add to Cart</Button>
+                        <Button onClick={() => addToCart(data)} variant="primary">Add to Cart</Button>
                         <h3 className='me-1'>${price}</h3>
                     </div>
                 </Card.Body>
