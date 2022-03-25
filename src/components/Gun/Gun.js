@@ -5,8 +5,6 @@ import Button from 'react-bootstrap/Button';
 const Gun = ({ data, addToCart }) => {
     const { action, bullet, capacity, category, id, img, name, price } = data;
 
-    console.log(addToCart)
-
     return (
         <div className='col-11 col-md-5 col-lg-4 p-2'>
             <Card style={{ width: '18rem' }}>

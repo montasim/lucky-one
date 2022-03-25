@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 import Gun from '../Gun/Gun';
 
 const Guns = () => {
@@ -15,8 +16,6 @@ const Guns = () => {
     const addToCart = (data) => {
         const newCart = [...cart, data]
         setCart(newCart);
-
-        console.log(data);
     }
 
     return (
@@ -35,6 +34,11 @@ const Guns = () => {
             <div className='col-lg-3 col-11 border border-info text-center p-4'>
                 <h2>Selected Guns</h2>
                 <h1>{cart.length}</h1>
+                <div>
+                    {
+                        cart.map(item => <Cart item={item}></Cart>)
+                    }
+                </div>
                 <div className='mt-5'>
                     <button className='btn btn-light text-info border px-5 py-1 text-uppercase' variant="light">Choose 1 For Me</button>
                     <button className='btn btn-light text-success border px-5 py-1 text-uppercase mt-3' variant="light">Choose Again</button>
