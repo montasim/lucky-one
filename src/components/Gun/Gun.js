@@ -7,7 +7,7 @@ const Gun = ({ data, addToCart, BsFillCartFill }) => {
 
     return (
         <div data-aos="fade-up"
-            data-aos-duration="3000" className='col-11 col-md-5 col-lg-4 p-2'>
+            data-aos-duration="3000" className='col-11 col-md-5 col-lg-4 p-2 mx-auto'>
             <Card style={{ width: '18rem' }}>
                 <Card.Img className='p-5' variant="top" src={img} />
                 <Card.Body className='mt-2'>
