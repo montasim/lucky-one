@@ -24,18 +24,9 @@ const Guns = ({ BsFillCartFill }) => {
         if (cart.length === 4) {
             const rndInt = Math.floor(Math.random() * max) + 0;
 
-            let cartItems = [];
-            cart.map(i => cartItems.push(i.id));
-
-            let forDeletion = cartItems.filter(a => a != cart[rndInt].id);
-
-            const currentCartItems = cartItems.filter(item => !forDeletion.includes(item));
-
-            const c = currentCartItems[0];
-
-            console.log(guns[currentCartItems[0]]);
-
-            setCart(guns[currentCartItems[0]]);
+            console.log(cart);
+            console.log(rndInt);
+            console.log(cart[rndInt]);
         }
     }
 
@@ -65,7 +56,7 @@ const Guns = ({ BsFillCartFill }) => {
                 <h1 className='mb-4'>{cart.length}</h1>
                 <div>
                     {
-                        cart.length > 1 ? cart.map(item => <Cart item={item}></Cart>) : <Cart item={cart}></Cart>
+                        cart.map(item => <Cart item={item}></Cart>)
                     }
                 </div>
                 <div className='mt-5'>
