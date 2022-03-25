@@ -5,17 +5,26 @@ import Gun from '../Gun/Gun';
 const Guns = ({ BsFillCartFill }) => {
     const [guns, setGuns] = useState([]);
 
+    const [cart, setCart] = useState([]);
+
     useEffect(() => {
         fetch('data.json')
             .then(response => response.json())
             .then(data => setGuns(data))
-    }, [])
-
-    const [cart, setCart] = useState([]);
+    }, [cart])
 
     const addToCart = (data) => {
         const newCart = [...cart, data]
-        setCart(newCart);
+        if (cart.length < 4 && newCart.length < 5) {
+            setCart(newCart);
+        }
+
+        console.log(cart);
+        console.log(newCart);
+    }
+
+    const choose = limit => {
+
     }
 
     const clearCart = array => {
@@ -48,7 +57,7 @@ const Guns = ({ BsFillCartFill }) => {
                     }
                 </div>
                 <div className='mt-5'>
-                    <button className='btn btn-light text-info border px-5 py-1 text-uppercase' variant="light">Choose 1 For Me</button>
+                    <button onClick={() => choose(4)} className='btn btn-light text-info border px-5 py-1 text-uppercase' variant="light">Choose 1 For Me</button>
                     <button onClick={() => clearCart(cart)} className='btn btn-light text-success border px-5 py-1 text-uppercase mt-3' variant="light">Choose Again</button>
                 </div>
             </div>
