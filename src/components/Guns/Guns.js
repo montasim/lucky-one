@@ -39,7 +39,7 @@ const Guns = ({ BsFillCartFill }) => {
                     }
                 </div>
             </div>
-            <div className='col-lg-3 col-12 border border-info text-center p-4 mt-2'>
+            <div className='col-lg-3 col-12 border border-info text-center p-4 mt-3'>
                 <h2>Selected Guns</h2>
                 <h1 className='mb-4'>{cart.length}</h1>
                 <div>
