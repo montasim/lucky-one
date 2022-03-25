@@ -10,6 +10,10 @@ const Guns = () => {
             .then(data => setGuns(data))
     }, [])
 
+    const addTocart = data => {
+        console.log(data);
+    }
+
     return (
         <div className='my-5 row mx-auto px-5'>
             <div className='text-center mb-5'>
@@ -19,7 +23,7 @@ const Guns = () => {
             <div className='container col-lg-9 col-11 gap-3 mx-auto'>
                 <div className='row'>
                     {
-                        guns.map(gun => <Gun key={gun.id} data={gun}></Gun>)
+                        guns.map(gun => <Gun key={gun.id} data={gun} addTocart={addTocart}></Gun>)
                     }
                 </div>
             </div>
