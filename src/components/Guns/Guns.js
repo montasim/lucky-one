@@ -18,13 +18,16 @@ const Guns = ({ BsFillCartFill }) => {
         if (cart.length < 4 && newCart.length < 5) {
             setCart(newCart);
         }
-
-        console.log(cart);
-        console.log(newCart);
     }
 
-    const choose = limit => {
+    const choose = max => {
+        if (cart.length === 4) {
+            const rndInt = Math.floor(Math.random() * max) + 0;
 
+            console.log(cart);
+            console.log(rndInt);
+            console.log(cart[rndInt]);
+        }
     }
 
     const clearCart = array => {
@@ -57,7 +60,7 @@ const Guns = ({ BsFillCartFill }) => {
                     }
                 </div>
                 <div className='mt-5'>
-                    <button onClick={() => choose(4)} className='btn btn-light text-info border px-5 py-1 text-uppercase' variant="light">Choose 1 For Me</button>
+                    <button onClick={() => choose(3)} className='btn btn-light text-info border px-5 py-1 text-uppercase' variant="light">Choose 1 For Me</button>
                     <button onClick={() => clearCart(cart)} className='btn btn-light text-success border px-5 py-1 text-uppercase mt-3' variant="light">Choose Again</button>
                 </div>
             </div>
