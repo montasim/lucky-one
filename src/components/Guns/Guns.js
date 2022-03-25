@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Gun from '../Gun/Gun';
 
-const Guns = () => {
+const Guns = ({ BsFillCartFill }) => {
     const [guns, setGuns] = useState([]);
 
     useEffect(() => {
@@ -35,7 +35,7 @@ const Guns = () => {
             <div className='container col-lg-9 col-11 gap-3 mx-auto'>
                 <div className='row'>
                     {
-                        guns.map(gun => <Gun key={gun.id} data={gun} addToCart={addToCart}></Gun>)
+                        guns.map(gun => <Gun key={gun.id} data={gun} addToCart={addToCart} BsFillCartFill={BsFillCartFill}></Gun>)
                     }
                 </div>
             </div>

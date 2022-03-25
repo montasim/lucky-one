@@ -5,6 +5,8 @@ import Guns from './components/Guns/Guns';
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { useEffect } from 'react';
+import { BsFillCartFill } from 'react-icons/bs';
+
 
 function App() {
   useEffect(() => {
@@ -13,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <Guns />
+      <Guns BsFillCartFill={BsFillCartFill} />
       <Questions />
     </div>
   );
