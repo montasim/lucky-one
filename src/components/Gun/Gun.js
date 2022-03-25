@@ -6,7 +6,8 @@ const Gun = ({ data, addToCart }) => {
     const { action, bullet, capacity, category, id, img, name, price } = data;
 
     return (
-        <div className='col-11 col-md-5 col-lg-4 p-2'>
+        <div data-aos="fade-up"
+            data-aos-duration="3000" className='col-11 col-md-5 col-lg-4 p-2'>
             <Card style={{ width: '18rem' }}>
                 <Card.Img className='p-5' variant="top" src={img} />
                 <Card.Body className='mt-2'>
