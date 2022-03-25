@@ -18,6 +18,14 @@ const Guns = () => {
         setCart(newCart);
     }
 
+    const clearCart = array => {
+        while (array.length) {
+            array.pop();
+        }
+
+        setCart(array);
+    };
+
     return (
         <div className='my-5 row mx-auto px-5'>
             <div className='text-center mb-5'>
@@ -41,7 +49,7 @@ const Guns = () => {
                 </div>
                 <div className='mt-5'>
                     <button className='btn btn-light text-info border px-5 py-1 text-uppercase' variant="light">Choose 1 For Me</button>
-                    <button className='btn btn-light text-success border px-5 py-1 text-uppercase mt-3' variant="light">Choose Again</button>
+                    <button onClick={() => clearCart(cart)} className='btn btn-light text-success border px-5 py-1 text-uppercase mt-3' variant="light">Choose Again</button>
                 </div>
             </div>
         </div>

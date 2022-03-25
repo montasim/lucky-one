@@ -2,8 +2,6 @@ import React from 'react';
 import './Cart.css';
 
 const Cart = ({ item }) => {
-    console.log(item.name)
-
     const { img, name, price } = item;
 
     return (
