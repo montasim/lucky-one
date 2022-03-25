@@ -15,8 +15,11 @@ const Guns = ({ BsFillCartFill }) => {
 
     const addToCart = (data) => {
         const newCart = [...cart, data]
-        if (cart.length < 4 && newCart.length < 5) {
+        if (newCart.length < 5) {
             setCart(newCart);
+        }
+        else if (cart.length) {
+            alert('Can Not Add More Than 4 Items At A Time');
         }
     }
 
@@ -24,18 +27,18 @@ const Guns = ({ BsFillCartFill }) => {
         if (cart.length === 4) {
             const rndInt = Math.floor(Math.random() * max) + 0;
 
-            console.log(cart);
-            console.log(rndInt);
-            console.log(cart[rndInt]);
+            // console.log(cart);
+            // console.log(rndInt);
+            console.log('random', cart[rndInt]);
+
+            <Cart item={cart.rndInt}></Cart>
         }
     }
 
     const clearCart = array => {
-        while (array.length) {
-            array.pop();
-        }
+        cart.length = 0;
 
-        setCart(array);
+        setCart(cart);
     };
 
     return (
