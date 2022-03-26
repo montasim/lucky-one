@@ -1,3 +1,4 @@
+/* gun card */
 .gun-container {
   background-color: #c4c4c4;
   height: 660px;
@@ -9,16 +10,19 @@
   cursor: pointer;
 }
 
+/* heading */
 .guns-container h1 {
   font-family: "Metamorphous", cursive;
   font-weight: 500;
 }
 
+/* hover effect */
 .guns-container h1:hover,
 h3:hover {
   color: #c59b58;
 }
 
+/* image box properties */
 .image-container {
   width: 250px;
   height: 320px;
@@ -27,6 +31,7 @@ h3:hover {
   clip-path: polygon(14% 0%, 100% 0, 100% 86%, 85% 100%, 0 100%, 0% 17%);
 }
 
+/* image properties */
 .image-container img {
   height: 100%;
   width: 100%;

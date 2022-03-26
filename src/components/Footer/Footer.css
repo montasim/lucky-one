@@ -1,7 +1,9 @@
+/* footer background */
 .footer-container {
   background-color: #5c5c5c;
 }
 
+/* copyright */
 .footer-container p {
   font-size: 20px;
   font-family: "Metamorphous", cursive;

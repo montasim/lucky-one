@@ -4,24 +4,30 @@ import Gun from '../Gun/Gun';
 import React, { useEffect, useState } from 'react';
 
 const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelected, GiAutogun }) => {
+    // guns data state
     const [guns, setGuns] = useState([]);
 
+    // cart data state
     const [cart, setCart] = useState([]);
 
+    // when data loaded
     useEffect(() => {
         fetch('data.json')
             .then(response => response.json())
             .then(data => setGuns(data))
     }, [cart])
 
+    // add to cart
     const handleAddToCart = (selectedProduct) => {
         let newCart = [];
         if (cart.length < 4) {
+            // add unique item to cart
             const exists = cart.find(product => product.id === selectedProduct.id);
             if (!exists) {
                 newCart = [...cart, selectedProduct];
                 setCart(newCart);
             }
+            // for existing items
             else {
                 const rest = cart.filter(product => product.id !== selectedProduct.id);
                 newCart = [...rest, exists];
@@ -30,13 +36,16 @@ const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelect
                 alert('Can Not Select Duplicate Items');
             }
         }
-        else {
+        // can select maximum 4 items 
+        else if (cart.length === 4) {
             alert('Can Select Maximum 4 Items');
         }
 
+        // change cart state
         setCart(newCart);
     }
 
+    // choose from selected 4 items
     const choose = _ => {
         if (cart.length === 4) {
             const rndInt = Math.floor(Math.random() * 3) + 0;
@@ -51,11 +60,13 @@ const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelect
 
             setCart(guns[currentCartItems[0]]);
         }
+        // when less than 4 items display message
         else {
             alert('Please Choose Any 4 Items First');
         }
     }
 
+    // clear cart items
     const clearCart = _ => {
         setCart(cart.length = 0);
     };
@@ -70,7 +81,7 @@ const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelect
             <div className='col-lg-3 col-12 order-lg-1 text-center p-4 mb-4 mt-2 cart-container'>
                 <h3><GrCheckboxSelected className='h3 me-3' />Selected Guns</h3>
                 <h1 className='mb-5'>{cart.length}</h1>
-                {
+                {   // display cart items
                     cart.length > 0 ? cart.map(item => <Cart key={item.id} item={item}></Cart>) : <Cart key={cart.id} item={cart}></Cart>
                 }
                 <div className='mt-5 row order-lg-2 gap-3 align-items-center justify-content-center'>
@@ -81,6 +92,7 @@ const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelect
             <div className='guns-container col-lg-9 col-12'>
                 <div className='row gap-4'>
                     {
+                        // display items
                         guns.map(gun => <Gun handleAddToCart={handleAddToCart} key={gun.id} data={gun} BsFillCartFill={BsFillCartFill}></Gun>)
                     }
                 </div>

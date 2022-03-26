@@ -2,6 +2,7 @@ import React from 'react';
 import './Gun.css';
 
 const Gun = ({ data, handleAddToCart, BsFillCartFill }) => {
+    // destructuring
     const { action, bullet, capacity, category, id, img, name, price } = data;
 
     return (

@@ -1,4 +1,5 @@
 const Cart = ({ item }) => {
+    // destructuring
     const { img, name, price } = item;
 
     return (
