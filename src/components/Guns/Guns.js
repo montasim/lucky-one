@@ -13,14 +13,31 @@ const Guns = ({ BsFillCartFill }) => {
             .then(data => setGuns(data))
     }, [cart])
 
-    const addToCart = (data) => {
-        const newCart = [...cart, data]
-        if (newCart.length < 5) {
-            setCart(newCart);
+    // const addToCart = (data) => {
+    //     const newCart = [...cart, data]
+    //     if (newCart.length < 5) {
+    //         setCart(newCart);
+    //     }
+    //     else if (cart.length) {
+    //         alert('Can Not Add More Than 4 Items At A Time');
+    //     }
+    // }
+
+    const handleAddToCart = (selectedProduct) => {
+        console.log(selectedProduct);
+        let newCart = [];
+        const exists = cart.find(product => product.id === selectedProduct.id);
+        if (!exists) {
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct];
         }
-        else if (cart.length) {
-            alert('Can Not Add More Than 4 Items At A Time');
+        else {
+            const rest = cart.filter(product => product.id !== selectedProduct.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists];
         }
+
+        setCart(newCart);
     }
 
     const choose = max => {
@@ -35,8 +52,10 @@ const Guns = ({ BsFillCartFill }) => {
         }
     }
 
-    const clearCart = array => {
+    const clearCart = _ => {
         cart.length = 0;
+
+        Cart.innerHtml = '';
 
         setCart(cart);
     };
@@ -50,7 +69,7 @@ const Guns = ({ BsFillCartFill }) => {
             <div className='container col-lg-9 col-11 gap-3 mx-auto'>
                 <div className='row'>
                     {
-                        guns.map(gun => <Gun key={gun.id} data={gun} addToCart={addToCart} BsFillCartFill={BsFillCartFill}></Gun>)
+                        guns.map(gun => <Gun key={gun.id} data={gun} handleAddToCart={handleAddToCart} BsFillCartFill={BsFillCartFill}></Gun>)
                     }
                 </div>
             </div>
@@ -64,7 +83,7 @@ const Guns = ({ BsFillCartFill }) => {
                 </div>
                 <div className='mt-5'>
                     <button onClick={() => choose(3)} className='btn btn-light text-info border px-5 py-1 text-uppercase' variant="light">Choose 1 For Me</button>
-                    <button onClick={() => clearCart(cart)} className='btn btn-light text-success border px-5 py-1 text-uppercase mt-3' variant="light">Choose Again</button>
+                    <button onClick={() => clearCart(cart)} className='btn btn-light text-success border px-5 py-1 text-uppercase mt-3' variant="light">Remove All</button>
                 </div>
             </div>
         </div>
