@@ -26,10 +26,12 @@ const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelect
                 const rest = cart.filter(product => product.id !== selectedProduct.id);
                 newCart = [...rest, exists];
                 setCart(newCart);
+
+                alert('Can Not Select Duplicate Items');
             }
         }
-        else if (cart.length) {
-            alert('Can Not Add More Than 4 Items At A Time');
+        else {
+            alert('Can Select Maximum 4 Items');
         }
 
         setCart(newCart);
@@ -48,6 +50,9 @@ const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelect
             const currentCartItems = cartItems.filter(item => !forDeletion.includes(item));
 
             setCart(guns[currentCartItems[0]]);
+        }
+        else {
+            alert('Please Choose Any 4 Items First');
         }
     }
 

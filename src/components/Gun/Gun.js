@@ -10,7 +10,7 @@ const Gun = ({ data, handleAddToCart, BsFillCartFill }) => {
             <div className='image-container'>
                 <img src={img} alt='' />
             </div>
-            <div className='p-1'>
+            <div className='p-1' key={id}>
                 <h3 className='mt-4 my-3'>{name}</h3>
                 <p>Bullet Type : {bullet}</p>
                 <p>Category : {category}</p>
