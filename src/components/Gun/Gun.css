@@ -1,8 +1,8 @@
 .gun-container {
   background-color: #c4c4c4;
   height: 660px;
-  width: 300px;
-  padding: 12px;
+  width: 280px;
+  padding: 15px;
   position: relative;
   justify-self: center;
   clip-path: polygon(15% 0%, 100% 0, 100% 90%, 85% 100%, 0 100%, 0% 10%);
@@ -10,10 +10,10 @@
 }
 
 .image-container {
-  width: 280px;
+  width: 250px;
   height: 320px;
   background-color: #fff;
-  padding: 25px;
+  padding: 15px;
   clip-path: polygon(13% 0%, 100% 0, 100% 86%, 85% 100%, 0 100%, 0% 17%);
 }
 
