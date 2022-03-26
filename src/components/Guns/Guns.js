@@ -13,28 +13,23 @@ const Guns = ({ BsFillCartFill }) => {
             .then(data => setGuns(data))
     }, [cart])
 
-    // const addToCart = (data) => {
-    //     const newCart = [...cart, data]
-    //     if (newCart.length < 5) {
-    //         setCart(newCart);
-    //     }
-    //     else if (cart.length) {
-    //         alert('Can Not Add More Than 4 Items At A Time');
-    //     }
-    // }
-
     const handleAddToCart = (selectedProduct) => {
         console.log(selectedProduct);
         let newCart = [];
-        const exists = cart.find(product => product.id === selectedProduct.id);
-        if (!exists) {
-            selectedProduct.quantity = 1;
-            newCart = [...cart, selectedProduct];
+        if (cart.length < 4) {
+            const exists = cart.find(product => product.id === selectedProduct.id);
+            if (!exists) {
+                selectedProduct.quantity = 1;
+                newCart = [...cart, selectedProduct];
+            }
+            else {
+                const rest = cart.filter(product => product.id !== selectedProduct.id);
+                exists.quantity = exists.quantity + 1;
+                newCart = [...rest, exists];
+            }
         }
-        else {
-            const rest = cart.filter(product => product.id !== selectedProduct.id);
-            exists.quantity = exists.quantity + 1;
-            newCart = [...rest, exists];
+        else if (cart.length) {
+            alert('Can Not Add More Than 4 Items At A Time');
         }
 
         setCart(newCart);
