@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Gun from '../Gun/Gun';
 
-const Guns = ({ BsFillCartFill }) => {
+const Guns = ({ BsFillCartFill, FcViewDetails }) => {
     const [guns, setGuns] = useState([]);
 
     const [cart, setCart] = useState([]);
@@ -14,17 +14,14 @@ const Guns = ({ BsFillCartFill }) => {
     }, [cart])
 
     const handleAddToCart = (selectedProduct) => {
-        console.log(selectedProduct);
         let newCart = [];
         if (cart.length < 4) {
             const exists = cart.find(product => product.id === selectedProduct.id);
             if (!exists) {
-                selectedProduct.quantity = 1;
                 newCart = [...cart, selectedProduct];
             }
             else {
                 const rest = cart.filter(product => product.id !== selectedProduct.id);
-                exists.quantity = exists.quantity + 1;
                 newCart = [...rest, exists];
             }
         }
@@ -39,18 +36,12 @@ const Guns = ({ BsFillCartFill }) => {
         if (cart.length === 4) {
             const rndInt = Math.floor(Math.random() * max) + 0;
 
-            // console.log(cart);
-            // console.log(rndInt);
-            console.log('random', cart[rndInt]);
-
-            <Cart item={cart.rndInt}></Cart>
+            setCart(cart);
         }
     }
 
     const clearCart = _ => {
         cart.length = 0;
-
-        Cart.innerHtml = '';
 
         setCart(cart);
     };
@@ -64,7 +55,7 @@ const Guns = ({ BsFillCartFill }) => {
             <div className='container col-lg-9 col-11 gap-3 mx-auto'>
                 <div className='row'>
                     {
-                        guns.map(gun => <Gun key={gun.id} data={gun} handleAddToCart={handleAddToCart} BsFillCartFill={BsFillCartFill}></Gun>)
+                        guns.map(gun => <Gun key={gun.id} data={gun} handleAddToCart={handleAddToCart} BsFillCartFill={BsFillCartFill} FcViewDetails={FcViewDetails}></Gun>)
                     }
                 </div>
             </div>
@@ -73,7 +64,7 @@ const Guns = ({ BsFillCartFill }) => {
                 <h1 className='mb-4'>{cart.length}</h1>
                 <div>
                     {
-                        cart.map(item => <Cart item={item}></Cart>)
+                        cart.map(item => <Cart item={item} key={item.id}></Cart>)
                     }
                 </div>
                 <div className='mt-5'>

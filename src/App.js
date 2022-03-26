@@ -6,6 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'
 import { useEffect } from 'react';
 import { BsFillCartFill } from 'react-icons/bs';
+import { FcViewDetails } from 'react-icons/fc';
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <Guns BsFillCartFill={BsFillCartFill} />
+      <Guns BsFillCartFill={BsFillCartFill} FcViewDetails={FcViewDetails} />
       <Questions />
     </div>
   );

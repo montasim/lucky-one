@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from 'react';
 import './Cart.css';
 
 const Cart = ({ item }) => {
     const { img, name, price } = item;
-
-    console.log('cart', item);
 
     return (
         <div data-aos="fade-up"
