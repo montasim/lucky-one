@@ -65,7 +65,7 @@ const Guns = ({ BsFillCartFill, FcViewDetails }) => {
                 <h1 className='mb-4'>{cart.length}</h1>
                 <div>
                     {
-                        cart.length > 0 ? cart.map(item => <Cart item={item || ''}></Cart>) : <Cart item={cart || ''}></Cart>
+                        cart.length > 0 ? cart.map(item => <Cart key={item.id} item={item || ''}></Cart>) : <Cart key={cart.id} item={cart || ''}></Cart>
                     }
                 </div>
                 <div className='mt-5 row order-lg-2 gap-3'>
