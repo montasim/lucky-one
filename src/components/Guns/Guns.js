@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import './Guns.css';
 import Cart from '../Cart/Cart';
 import Gun from '../Gun/Gun';
-import './Guns.css'
+import React, { useEffect, useState } from 'react';
 
-const Guns = ({ BsFillCartFill, FcViewDetails }) => {
+const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelected, GiAutogun }) => {
     const [guns, setGuns] = useState([]);
 
     const [cart, setCart] = useState([]);
@@ -43,7 +43,7 @@ const Guns = ({ BsFillCartFill, FcViewDetails }) => {
 
             cart.map(i => cartItems.push(i.id));
 
-            let forDeletion = cartItems.filter(a => a != cart[rndInt].id);
+            let forDeletion = cartItems.filter(a => a !== cart[rndInt].id);
 
             const currentCartItems = cartItems.filter(item => !forDeletion.includes(item));
 
@@ -56,13 +56,13 @@ const Guns = ({ BsFillCartFill, FcViewDetails }) => {
     };
 
     return (
-        <div className='row mx-auto my-5  px-5 guns-container'>
+        <div className='row mx-auto px-5 guns-container'>
             <div className='text-center mb-5'>
-                <h1 className='my-5 text-center'>Guns of Your Dream </h1>
-                <h4 className='mt-3'>Choose Your 4 Favourite Gun From Our Large Collection</h4>
+                <h1 className='my-5 text-center'><GiAutogun className='h1 me-3' />Guns of Your Dream </h1>
+                <h4 className='mt-3 mb-5'>Choose Your 4 Favorite Gun From Our Large Collection</h4>
             </div>
             <div className='col-lg-3 col-12 order-lg-1 text-center p-4 mb-4 mt-2 cart-container'>
-                <h2>Selected Guns</h2>
+                <h3><GrCheckboxSelected className='h3 me-3' />Selected Guns</h3>
                 <h1 className='mb-4'>{cart.length}</h1>
                 <div>
                     {
@@ -70,8 +70,8 @@ const Guns = ({ BsFillCartFill, FcViewDetails }) => {
                     }
                 </div>
                 <div className='mt-5 row order-lg-2 gap-3 align-items-center justify-content-center'>
-                    <button onClick={() => choose(3)} className=' text-uppercase border-0'>Choose 1 For Me</button>
-                    <button onClick={() => clearCart(cart)} className='text-uppercase border-0'>Remove All</button>
+                    <button onClick={() => choose(3)} className=' text-uppercase border-0'><AiOutlineSelect className='me-2 h5 mt-2' />Choose 1 For Me</button>
+                    <button onClick={() => clearCart(cart)} className='text-uppercase border-0'><GoDiffRemoved className='me-2 h5 mt-1' />Remove All</button>
                 </div>
             </div>
             <div className='guns-container col-lg-9 col-12'>
@@ -82,8 +82,6 @@ const Guns = ({ BsFillCartFill, FcViewDetails }) => {
                 </div>
             </div>
         </div>
-
-
     );
 };
 

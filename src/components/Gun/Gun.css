@@ -9,12 +9,22 @@
   cursor: pointer;
 }
 
+.guns-container h1 {
+  font-family: "Metamorphous", cursive;
+  font-weight: 500;
+}
+
+.guns-container h1:hover,
+h3:hover {
+  color: #c59b58;
+}
+
 .image-container {
   width: 250px;
   height: 320px;
   background-color: #fff;
   padding: 15px;
-  clip-path: polygon(13% 0%, 100% 0, 100% 86%, 85% 100%, 0 100%, 0% 17%);
+  clip-path: polygon(14% 0%, 100% 0, 100% 86%, 85% 100%, 0 100%, 0% 17%);
 }
 
 .image-container img {

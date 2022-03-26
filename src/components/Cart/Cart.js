@@ -1,14 +1,12 @@
-import './Cart.css';
-
 const Cart = ({ item }) => {
     const { img, name, price } = item;
 
     return (
         <div data-aos="fade-up"
             data-aos-duration="3000" className='d-flex gap-2 align-items-center cart-cart-container mb-3 mx-auto'>
-            <img className='cart-image-container' src={img || ''} alt='Find Your Favorite Gun' />
+            <img className='w-50 rounded-3' src={img || ''} />
             <p>{name}</p>
-            <h6>{price === '' ? '$ ' + price : ' '}</h6>
+            <h6>{price}</h6>
         </div>
     );
 };

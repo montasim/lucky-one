@@ -1,5 +1,5 @@
 import React from 'react';
-import './Gun.css'
+import './Gun.css';
 
 const Gun = ({ data, handleAddToCart, BsFillCartFill }) => {
     const { action, bullet, capacity, category, id, img, name, price } = data;
@@ -16,8 +16,9 @@ const Gun = ({ data, handleAddToCart, BsFillCartFill }) => {
                 <p>Category : {category}</p>
                 <p>Capacity : {capacity}</p>
                 <p>Action : {action}</p>
+
                 <div className='add-to-cart p-1'>
-                    <button onClick={() => handleAddToCart(data)} className='btn'><BsFillCartFill className='icon me-2' />Add in Cart</button>
+                    <button onClick={() => handleAddToCart(data)} className='btn me-2'><BsFillCartFill className='icon me-2' />Add in Cart</button>
                     <h3>${price}</h3>
                 </div>
             </div>
