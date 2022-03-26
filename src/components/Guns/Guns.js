@@ -68,7 +68,12 @@ const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelect
 
     // clear cart items
     const clearCart = _ => {
-        setCart(cart.length = 0);
+        if (cart.length !== 0) {
+            setCart(cart.length = 0);
+        }
+        else {
+            alert('Select Items First !');
+        }
     };
 
     return (
