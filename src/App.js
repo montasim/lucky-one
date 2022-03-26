@@ -7,6 +7,10 @@ import 'aos/dist/aos.css'
 import { useEffect } from 'react';
 import { BsFillCartFill } from 'react-icons/bs';
 import { FcViewDetails } from 'react-icons/fc';
+import { FaUserAlt } from 'react-icons/fa';
+import { AiFillHome, AiFillShopping } from 'react-icons/ai';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -16,8 +20,10 @@ function App() {
 
   return (
     <div className="App">
+      <Navbar BsFillCartFill={BsFillCartFill} FaUserAlt={FaUserAlt} AiFillHome={AiFillHome} AiFillShopping={AiFillShopping} ></Navbar>
       <Guns BsFillCartFill={BsFillCartFill} FcViewDetails={FcViewDetails} />
       <Questions />
+      <Footer></Footer>
     </div>
   );
 }

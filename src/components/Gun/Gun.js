@@ -1,36 +1,27 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import './Gun.css'
 
 const Gun = ({ data, handleAddToCart, BsFillCartFill }) => {
     const { action, bullet, capacity, category, id, img, name, price } = data;
 
     return (
         <div data-aos="fade-up"
-            data-aos-duration="3000" className='col-11 col-md-5 col-lg-4 p-2 mx-auto'>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img className='p-5' variant="top" src={img} />
-                <div>
-                    <Card.Body className='mt-2'>
-                        <Card.Title>{name}</Card.Title>
-                        <div className='mt-4'>
-                            <p>Action: {action}</p>
-                            <p>Bullet: {bullet}</p>
-                            <p>Capacity: {capacity}</p>
-                            <p>Category: {category}</p>
-                        </div>
-                        <div className='d-flex align-items-center justify-content-between'>
-                            <div>
-                                <Button onClick={() => handleAddToCart(data)} variant="info text-white mt-3" key={id}>Add to Cart
-                                    <BsFillCartFill className='ms-2' />
-                                </Button>
-                            </div>
-                            <h3 className='me-1'>${price}</h3>
-                        </div>
-                    </Card.Body>
+            data-aos-duration="3000" className='gun-container'>
+            <div className='image-container'>
+                <img src={img} alt='' />
+            </div>
+            <div className='p-1'>
+                <h3 className='mt-4 my-3'>{name}</h3>
+                <p>Bullet Type : {bullet}</p>
+                <p>Category : {category}</p>
+                <p>Capacity : {capacity}</p>
+                <p>Action : {action}</p>
+                <div className='add-to-cart p-1'>
+                    <button onClick={() => handleAddToCart(data)} className='btn'><BsFillCartFill className='icon me-2' />Add in Cart</button>
+                    <h3>${price}</h3>
                 </div>
-            </Card>
-        </div>
+            </div>
+        </div >
     );
 };
 

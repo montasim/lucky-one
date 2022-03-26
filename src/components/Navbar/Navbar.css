@@ -1,0 +1,37 @@
+.navbar {
+  background-color: #5c5c5c;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.store-name {
+  color: white;
+  font-size: 40px;
+  font-family: "Metamorphous", cursive;
+}
+
+a button {
+  font-family: "Metamorphous";
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.nav-hover {
+  color: white;
+}
+
+h2:hover,
+.nav-hover:hover {
+  color: orange;
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Gun from '../Gun/Gun';
+import './Guns.css'
 
 const Guns = ({ BsFillCartFill, FcViewDetails }) => {
     const [guns, setGuns] = useState([]);
@@ -19,10 +20,12 @@ const Guns = ({ BsFillCartFill, FcViewDetails }) => {
             const exists = cart.find(product => product.id === selectedProduct.id);
             if (!exists) {
                 newCart = [...cart, selectedProduct];
+                setCart(newCart);
             }
             else {
                 const rest = cart.filter(product => product.id !== selectedProduct.id);
                 newCart = [...rest, exists];
+                setCart(newCart);
             }
         }
         else if (cart.length) {
@@ -32,9 +35,9 @@ const Guns = ({ BsFillCartFill, FcViewDetails }) => {
         setCart(newCart);
     }
 
-    const choose = max => {
+    const choose = _ => {
         if (cart.length === 4) {
-            const rndInt = Math.floor(Math.random() * max) + 0;
+            const rndInt = Math.floor(Math.random() * 3) + 0;
 
             let cartItems = [];
 
@@ -49,39 +52,38 @@ const Guns = ({ BsFillCartFill, FcViewDetails }) => {
     }
 
     const clearCart = _ => {
-        cart.length = 0;
-
-        setCart(cart);
+        setCart(cart.length = 0);
     };
 
     return (
-        <div className='my-5 row mx-auto px-5'>
+        <div className='row mx-auto my-5  px-5 guns-container'>
             <div className='text-center mb-5'>
-                <h1 className='text-info'>Gun of Your Dreams </h1>
-                <h4 className='mt-3s'>Choose Your 4 Favourite Gun From Our Large Collection</h4>
+                <h1 className='my-5 text-center'>Guns of Your Dream </h1>
+                <h4 className='mt-3'>Choose Your 4 Favourite Gun From Our Large Collection</h4>
             </div>
-            <div className='col-lg-3 col-12 order-lg-1 border border-info text-center p-4 mb-4 mt-2'>
+            <div className='col-lg-3 col-12 order-lg-1 text-center p-4 mb-4 mt-2 cart-container'>
                 <h2>Selected Guns</h2>
                 <h1 className='mb-4'>{cart.length}</h1>
                 <div>
                     {
-                        cart.length > 0 ? cart.map(item => <Cart key={item.id} item={item || ''}></Cart>) : <Cart key={cart.id} item={cart || ''}></Cart>
+                        cart.length > 0 ? cart.map(item => <Cart key={item.id} item={item}></Cart>) : <Cart key={cart.id} item={cart}></Cart>
                     }
                 </div>
-                <div className='mt-5 row order-lg-2 gap-3'>
-                    <button onClick={() => choose(3)} className='btn btn-light text-info border px-5 py-1 text-uppercase' variant="light">Choose 1 For Me</button>
-                    <button onClick={() => clearCart(cart)} className='tn btn-light text-info border px-5 py-1 text-uppercase' variant="light">Remove All</button>
+                <div className='mt-5 row order-lg-2 gap-3 align-items-center justify-content-center'>
+                    <button onClick={() => choose(3)} className=' text-uppercase border-0'>Choose 1 For Me</button>
+                    <button onClick={() => clearCart(cart)} className='text-uppercase border-0'>Remove All</button>
                 </div>
             </div>
-
-            <div className='container col-lg-9 col-12 gap-3 mx-auto'>
-                <div className='row'>
+            <div className='guns-container col-lg-9 col-12'>
+                <div className='row gap-4'>
                     {
-                        guns.map(gun => <Gun key={gun.id} data={gun} handleAddToCart={handleAddToCart} BsFillCartFill={BsFillCartFill} FcViewDetails={FcViewDetails}></Gun>)
+                        guns.map(gun => <Gun handleAddToCart={handleAddToCart} key={gun.id} data={gun} BsFillCartFill={BsFillCartFill}></Gun>)
                     }
                 </div>
             </div>
         </div>
+
+
     );
 };
 

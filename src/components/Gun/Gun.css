@@ -1,0 +1,52 @@
+.gun-container {
+  background-color: #c4c4c4;
+  height: 660px;
+  width: 300px;
+  padding: 12px;
+  position: relative;
+  justify-self: center;
+  clip-path: polygon(15% 0%, 100% 0, 100% 90%, 85% 100%, 0 100%, 0% 10%);
+  cursor: pointer;
+}
+
+.image-container {
+  width: 280px;
+  height: 320px;
+  background-color: #fff;
+  padding: 25px;
+  clip-path: polygon(13% 0%, 100% 0, 100% 86%, 85% 100%, 0 100%, 0% 17%);
+}
+
+.image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.add-to-cart {
+  width: calc(100% - 30px);
+  height: 50px;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.add-to-cart button {
+  background-color: #fff;
+  font-size: medium;
+  cursor: pointer;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.add-to-cart button:hover {
+  background-color: #c59b58;
+  color: white;
+}
