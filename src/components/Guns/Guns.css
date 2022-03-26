@@ -1,8 +1,8 @@
 .cart-container {
   background-color: #c4c4c4;
   height: 100%;
-  width: 310px;
-  padding: 15px;
+  width: 350px;
+  padding: 5px;
   position: relative;
   justify-self: center;
   clip-path: polygon(15% 0%, 100% 0, 100% 90%, 85% 100%, 0 100%, 0% 10%);
@@ -17,6 +17,10 @@
   width: 220px;
   height: 40px;
   border-radius: 5px;
+}
+
+.cart-container img {
+  clip-path: polygon(15% 0%, 100% 0, 100% 90%, 85% 100%, 0 100%, 0% 10%);
 }
 
 .cart-container h3:hover {

@@ -56,19 +56,18 @@ const Guns = ({ BsFillCartFill, AiOutlineSelect, GoDiffRemoved, GrCheckboxSelect
     };
 
     return (
-        <div className='row mx-auto px-5 guns-container'>
+        <div data-aos="fade-up"
+            data-aos-duration="3000" className='row mx-auto px-5 guns-container'>
             <div className='text-center mb-5'>
                 <h1 className='my-5 text-center'><GiAutogun className='h1 me-3' />Guns of Your Dream </h1>
                 <h4 className='mt-3 mb-5'>Choose Your 4 Favorite Gun From Our Large Collection</h4>
             </div>
             <div className='col-lg-3 col-12 order-lg-1 text-center p-4 mb-4 mt-2 cart-container'>
                 <h3><GrCheckboxSelected className='h3 me-3' />Selected Guns</h3>
-                <h1 className='mb-4'>{cart.length}</h1>
-                <div>
-                    {
-                        cart.length > 0 ? cart.map(item => <Cart key={item.id} item={item}></Cart>) : <Cart key={cart.id} item={cart}></Cart>
-                    }
-                </div>
+                <h1 className='mb-5'>{cart.length}</h1>
+                {
+                    cart.length > 0 ? cart.map(item => <Cart key={item.id} item={item}></Cart>) : <Cart key={cart.id} item={cart}></Cart>
+                }
                 <div className='mt-5 row order-lg-2 gap-3 align-items-center justify-content-center'>
                     <button onClick={() => choose(3)} className=' text-uppercase border-0'><AiOutlineSelect className='me-2 h5 mt-2' />Choose 1 For Me</button>
                     <button onClick={() => clearCart(cart)} className='text-uppercase border-0'><GoDiffRemoved className='me-2 h5 mt-1' />Remove All</button>
