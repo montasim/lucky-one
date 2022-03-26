@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <Navbar GiMachineGunMagazine={GiMachineGunMagazine} BsFillCartFill={BsFillCartFill} FaUserAlt={FaUserAlt} AiFillHome={AiFillHome} AiFillShopping={AiFillShopping} />
 
-      <Guns BsFillCartFill={BsFillCartFill} FcViewDetails={FcViewDetails} GrCheckboxSelected={GrCheckboxSelected} AiOutlineSelect={AiOutlineSelect} GiAutogun={GiAutogun} GoDiffRemoved={GoDiffRemoved} />
+      <Guns BsFillCartFill={BsFillCartFill} FcViewDetails={FcViewDetails} AiFillShopping={AiFillShopping} AiOutlineSelect={AiOutlineSelect} GiAutogun={GiAutogun} GoDiffRemoved={GoDiffRemoved} />
 
       <Questions BsBoxArrowUpRight={BsBoxArrowUpRight} />
 

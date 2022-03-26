@@ -19,7 +19,7 @@ const Gun = ({ data, handleAddToCart, BsFillCartFill }) => {
                 <p>Action : {action}</p>
 
                 <div className='add-to-cart p-1'>
-                    <button onClick={() => handleAddToCart(data)} className='btn me-2'><BsFillCartFill className='icon me-2' />Add in Cart</button>
+                    <button onClick={() => handleAddToCart(data)} className='btn me-2'><BsFillCartFill className='icon me-2' />Add to Cart</button>
                     <h3>${price}</h3>
                 </div>
             </div>
